@@ -39,7 +39,12 @@ const header = document.querySelector('.header');
 function createMenu(data) {
 
   // Define new elements
-  const menu = document.createElement('div'); // parent element
+  const menu = document.createElement('div'); 
   const menuItem = document.createElement('ul');
 
+   // Setup structure of elements
+   header.appendChild(menu);
+   menu.appendChild(menuItem);
+
+}
 
