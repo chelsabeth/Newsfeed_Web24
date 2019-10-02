@@ -119,11 +119,11 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
   // Define new elements
   const articles = document.createElement("div"); // parent element
   const title = document.createElement("h2");
-  const date = document.createElement("h3");
+  const date = document.createElement("p");
   const parOne = document.createElement("p");
   const parTwo = document.createElement("p");
   const parThree = document.createElement("p"); 
-  const btn = document.createElement("button");
+  const btn = document.createElement("span");
 
   // Setup the structure
   articles.appendChild(title);
@@ -133,5 +133,7 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
   articles.appendChild(parThree);
   articles.appendChild(btn);
 
+  // Set class names
+  articles.classList.add("article");
   
 }
