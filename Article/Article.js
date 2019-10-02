@@ -123,16 +123,16 @@ data.forEach(data => {
 function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) {
   // Define new elements
   const articles = document.createElement("div"); // parent element
-  const title = document.createElement("h2");
-  const date = document.createElement("p");
+  const articleTitle = document.createElement("h2");
+  const articleDate = document.createElement("p");
   const parOne = document.createElement("p");
   const parTwo = document.createElement("p");
   const parThree = document.createElement("p"); 
   const btn = document.createElement("span");
 
   // Setup the structure
-  articles.appendChild(title);
-  articles.appendChild(date);
+  articles.appendChild(articleTitle);
+  articles.appendChild(articleDate);
   articles.appendChild(parOne);
   articles.appendChild(parTwo);
   articles.appendChild(parThree);
@@ -140,12 +140,12 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
 
   // Set class names
   articles.classList.add("article");
-  date.classList.add("date");
+  articleDate.classList.add("date");
   btn.classList.add("expandButton");
 
   // Set content
-  title.textContent = title;
-  date.textContent = date;
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
   parOne.textContent = firstParagraph;
   parTwo.textContent = secondParagraph;
   parThree.textContent = thirdParagraph;
