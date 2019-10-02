@@ -85,6 +85,24 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Fluffy Kitty!',
+    date: 'day 547 with hooman',
+    firstParagraph: 'Pounce on unsuspecting person. Claw your carpet in places everyone can see - why hide my amazing artistic clawing skills? paw at beetle and eat it before it gets away yet annoy the old grumpy cat, start a fight and then retreat to wash when i lose',
+
+    secondParagraph: 'Attack like a vicious monster human is washing you why halp oh the horror flee scratch hiss bite, or shake treat bag cat not kitten around destroy couch licks paws fall asleep upside-down. Jump on human and sleep on her all night long be long in the bed, purr in the morning and then give a bite to every human',
+
+    thirdParagraph: 'urr loud scratch the walls, the floor, the windows, the humans. Vommit food and eat it again. Human is washing you why halp oh the horror flee scratch hiss bite sit on human. I is not fat, i is fluffy lick the plastic bag so cat slap dog in face.'
+  },
+  {
+    title: 'D&D',
+    date: 'October the second',
+    firstParagraph: 'Bard base attack bonus character class colossal competence bonus creation subschool domain spell dungeon master earth domain frightened good domain law domain luck domain material plane melee attack bonus monk natural armor bonus negative level ranger reptilian subtype school of magic staggered storm domain subschool use-activated item.',
+
+    secondParagraph: 'Adventuring party creature type current hit points effective character level energy damage fear aura fear ray projectile weapon scribe take 20 turned. Balance domain chaos domain dispel check effective character level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range.',
+
+    thirdParagraph: ' Chaos domain circumstance bonus darkness domain diminutive drow domain enchantment improved evasion law domain luck domain negative energy poison size modifier swallow whole thrown weapon turn undead.'
   }
 ];
 
@@ -115,12 +133,12 @@ const data = [
 
 const container = document.querySelector(".articles") // this is where I select the container from the HTML 
 
-data.forEach(data => {
+data.forEach(data => { // Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
   console.log("creating article", data.title)
   container.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
  })
 
-function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) { // Step 1: Create a function that creates a component
   // Define new elements
   const articles = document.createElement("div"); // parent element
   const articleTitle = document.createElement("h2");
@@ -152,11 +170,11 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
   btn.textContent = "Click to Read More";
 
   // Event listener 
-  btn.addEventListener('click', (e) => {
+  btn.addEventListener('click', (e) => { // Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
     console.log('button is clicked!')
     articles.classList.toggle('article-open');
     articles.classList.toggle('close');
   })
 
-  return articles
+  return articles // Step 3: return the entire component.
 };
