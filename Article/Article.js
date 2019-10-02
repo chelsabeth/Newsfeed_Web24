@@ -117,10 +117,21 @@ const container = document.querySelector(".articles") // this is where I select 
 
 function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) {
   // Define new elements
-  const articles = document.createElement("div"); //parent element
+  const articles = document.createElement("div"); // parent element
   const title = document.createElement("h2");
   const date = document.createElement("h3");
   const parOne = document.createElement("p");
   const parTwo = document.createElement("p");
   const parThree = document.createElement("p"); 
+  const btn = document.createElement("button");
+
+  // Setup the structure
+  articles.appendChild(title);
+  articles.appendChild(date);
+  articles.appendChild(parOne);
+  articles.appendChild(parTwo);
+  articles.appendChild(parThree);
+  articles.appendChild(btn);
+
+  
 }
