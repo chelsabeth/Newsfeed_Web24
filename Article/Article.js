@@ -115,6 +115,11 @@ const data = [
 
 const container = document.querySelector(".articles") // this is where I select the container from the HTML 
 
+data.forEach(data => {
+  console.log("creating article", data.title)
+  container.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+ })
+
 function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) {
   // Define new elements
   const articles = document.createElement("div"); // parent element
@@ -141,4 +146,17 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
   // Set content
   title.textContent = title;
   date.textContent = date;
-}
+  parOne.textContent = firstParagraph;
+  parTwo.textContent = secondParagraph;
+  parThree.textContent = thirdParagraph;
+  btn.textContent = "Click to Read More";
+
+  // Event listener 
+  btn.addEventListener('click', (e) => {
+    console.log('button is clicked!')
+    articles.classList.toggle('article-open');
+    articles.classList.toggle('close');
+  })
+
+  return articles
+};
