@@ -112,3 +112,15 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+const container = document.querySelector(".articles") // this is where I select the container from the HTML 
+
+function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  // Define new elements
+  const articles = document.createElement("div"); //parent element
+  const title = document.createElement("h2");
+  const date = document.createElement("h3");
+  const parOne = document.createElement("p");
+  const parTwo = document.createElement("p");
+  const parThree = document.createElement("p"); 
+}
