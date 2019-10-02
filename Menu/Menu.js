@@ -45,6 +45,7 @@ function createMenu(data) {
    // Setup structure of elements
    header.appendChild(menu);
    menu.appendChild(menuItem);
+   
 
    // Set class name
    menu.classList.add('menu');
@@ -56,5 +57,14 @@ function createMenu(data) {
   menu.classList.toggle('menu--open')
   });
   
-}
+  data.forEach(item => {
+    const listItem = document.createElement('li');
+    listItem.textContent = item;
+    menuItem.appendChild(listItem);
+  });
+
+  return menu
+};
+
+header.appendChild(createMenu(menuItems));
 
