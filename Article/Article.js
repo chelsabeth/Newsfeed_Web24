@@ -135,5 +135,10 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
 
   // Set class names
   articles.classList.add("article");
-  
+  date.classList.add("date");
+  btn.classList.add("expandButton");
+
+  // Set content
+  title.textContent = title;
+  date.textContent = date;
 }
