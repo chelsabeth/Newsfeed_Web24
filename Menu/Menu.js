@@ -36,7 +36,7 @@ let menuItems = [
 
 const header = document.querySelector('.header');
 
-function createMenu(data) {
+function createMenu(data) { // Step 1: Write a function that will create a menu component with the sturcture on lines 16-20. The function takes an array as its only argument.
 
   // Define new elements
   const menu = document.createElement('div'); 
@@ -50,21 +50,21 @@ function createMenu(data) {
    // Set class name
    menu.classList.add('menu');
 
-   const menuButton = document.querySelector('.menu-button');
+   const menuButton = document.querySelector('.menu-button'); // Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button') currently on the DOM.
 
   // Event listener
   menuButton.addEventListener('click', e => {
-  menu.classList.toggle('menu--open')
+  menu.classList.toggle('menu--open') // Step 4: add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on the menu (your div with a 'menu' class).
   });
   
   data.forEach(item => {
     const listItem = document.createElement('li');
     listItem.textContent = item;
-    menuItem.appendChild(listItem);
+    menuItem.appendChild(listItem); // Step 2: Inside this function, iterate over the array creating a list item <li> element for each item in the array. Add those items to the <ul>
   });
 
-  return menu
+  return menu // Step 5: return the menu component.
 };
 
-header.appendChild(createMenu(menuItems));
+header.appendChild(createMenu(menuItems)); // Step 6: add the menu component to the DOM.
 
