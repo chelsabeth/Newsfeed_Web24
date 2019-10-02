@@ -46,5 +46,15 @@ function createMenu(data) {
    header.appendChild(menu);
    menu.appendChild(menuItem);
 
+   // Set class name
+   menu.classList.add('menu');
+
+   const menuButton = document.querySelector('.menu-button');
+
+  // Event listener
+  menuButton.addEventListener('click', e => {
+  menu.classList.toggle('menu--open')
+  });
+  
 }
 
