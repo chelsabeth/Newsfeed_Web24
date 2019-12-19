@@ -85,6 +85,33 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Fluffy Kitty!',
+    date: 'day 547 with hooman',
+    firstParagraph: 'Pounce on unsuspecting person. Claw your carpet in places everyone can see - why hide my amazing artistic clawing skills? paw at beetle and eat it before it gets away yet annoy the old grumpy cat, start a fight and then retreat to wash when i lose',
+
+    secondParagraph: 'Attack like a vicious monster human is washing you why halp oh the horror flee scratch hiss bite, or shake treat bag cat not kitten around destroy couch licks paws fall asleep upside-down. Jump on human and sleep on her all night long be long in the bed, purr in the morning and then give a bite to every human',
+
+    thirdParagraph: 'urr loud scratch the walls, the floor, the windows, the humans. Vommit food and eat it again. Human is washing you why halp oh the horror flee scratch hiss bite sit on human. I is not fat, i is fluffy lick the plastic bag so cat slap dog in face.'
+  },
+  {
+    title: 'D&D',
+    date: 'October the second',
+    firstParagraph: 'Bard base attack bonus character class colossal competence bonus creation subschool domain spell dungeon master earth domain frightened good domain law domain luck domain material plane melee attack bonus monk natural armor bonus negative level ranger reptilian subtype school of magic staggered storm domain subschool use-activated item.',
+
+    secondParagraph: 'Adventuring party creature type current hit points effective character level energy damage fear aura fear ray projectile weapon scribe take 20 turned. Balance domain chaos domain dispel check effective character level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range.',
+
+    thirdParagraph: ' Chaos domain circumstance bonus darkness domain diminutive drow domain enchantment improved evasion law domain luck domain negative energy poison size modifier swallow whole thrown weapon turn undead.'
+  },
+  {
+    title: "10 points for Slytherin!",
+    date: "You'd never guess I'm a Slytherin",
+    firstParagraph: "Boggarts lavender robes, Hermione Granger Fantastic Beasts and Where to Find Them. Bee in your bonnet Hand of Glory elder wand, spectacles House Cup Bertie Bott’s Every Flavor Beans Impedimenta. Stunning spells tap-dancing spider Slytherin’s Heir mewing kittens Remus Lupin. Palominos scarlet train black robes, Metamorphimagus Niffler dead easy second bedroom. Padma and Parvati Sorting Hat Minister of Magic blue turban remember my last.",
+
+    secondParagraph: "Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail. Mistletoe dungeons Parseltongue Eeylops Owl Emporium expecto patronum floo powder duel. Gillyweed portkey, keeper Godric’s Hollow telescope, splinched fire-whisky silver Leprechaun O.W.L. stroke the spine. Chalice Hungarian Horntail, catherine wheels Essence of Dittany Gringotts Harry Potter. Prophecies Yaxley green eyes Remembrall horcrux hand of the servant. Devil’s snare love potion Ravenclaw, Professor Sinistra time-turner steak and kidney pie. Cabbage Daily Prophet letters from no one Dervish and Banges leg.",
+
+    thirdParagraph: "Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake, 9 ¾ dress robes I must not tell lies. Mudbloods yew pumpkin juice phials Ravenclaw’s Diadem 10 galleons Thieves Downfall. Ministry-of-Magic mimubulus mimbletonia Pigwidgeon knut phoenix feather other minister Azkaban. Hedwig Daily Prophet treacle tart full-moon Ollivanders You-Know-Who cursed. Fawkes maze raw-steak Voldemort Goblin Wars snitch Forbidden forest grindylows wool socks."
   }
 ];
 
@@ -112,3 +139,51 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+const container = document.querySelector(".articles") // this is where I select the container from the HTML 
+
+data.forEach(data => { // Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+  console.log("creating article", data.title)
+  container.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+ })
+
+function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) { // Step 1: Create a function that creates a component
+  // Define new elements
+  const articles = document.createElement("div"); // parent element
+  const articleTitle = document.createElement("h2");
+  const articleDate = document.createElement("p");
+  const parOne = document.createElement("p");
+  const parTwo = document.createElement("p");
+  const parThree = document.createElement("p"); 
+  const btn = document.createElement("span");
+
+  // Setup the structure
+  articles.appendChild(articleTitle);
+  articles.appendChild(articleDate);
+  articles.appendChild(parOne);
+  articles.appendChild(parTwo);
+  articles.appendChild(parThree);
+  articles.appendChild(btn);
+
+  // Set class names
+  articles.classList.add("article");
+  articleDate.classList.add("date");
+  btn.classList.add("expandButton");
+
+  // Set content
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  parOne.textContent = firstParagraph;
+  parTwo.textContent = secondParagraph;
+  parThree.textContent = thirdParagraph;
+  btn.textContent = "Click to Read More";
+
+  // Event listener 
+  btn.addEventListener('click', (e) => { // Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+    console.log('button is clicked!')
+    articles.classList.toggle('article-open');
+    articles.classList.toggle('close');
+  })
+
+  return articles // Step 3: return the entire component.
+};
